@@ -57,9 +57,10 @@ UUID создаются через готовую `exts.uuid_generate_v4()`. С�
 | `payment` | `payment_id uuid PK`; `order_id uuid FK`; `type payment_type`; `amount numeric(8,2)`; `transaction_id varchar(100) UQ`; `transaction_timestamp timestamp without time zone`; `status payment_status` |
 | `review` | `review_id uuid PK`; `order_id uuid FK`; `client_id uuid FK`; `entity_type review_entity_type`; `entity_id uuid`; `review_timestamp timestamp without time zone`; `description varchar(500)`; `photo_url varchar(255) NULL`; `rating numeric(3,2)` |
 
-Названия, логины и адресные компоненты сравниваются как сохранены. Формат телефона
-не ограничивается сверх непустой строки и длины; уникальность телефона задана только
-для клиента. Фото необязательно.
+Названия, логины и адресные компоненты сравниваются как сохранены. Для телефона
+проверяются только непустое значение и длина до 16 символов; его формат не проверяется.
+У клиентов телефоны должны быть уникальными; у курьеров одинаковые номера допустимы.
+Фото необязательно.
 
 ## Нормальные формы
 
